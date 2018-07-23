@@ -1,9 +1,13 @@
 # Problem Definition:
 
 ```
-> GET JSON from http://api-sandbox.pillpack.com/medications and http://api-sandbox.pillpack.com/prescriptions
-> For every brand medication find matching generic medication by RxNorm Concept Unique Identifier (rxcui)
-> Output new prescriptions with prescriptions_id and generic medication_id as per https://gist.github.com/mpokress/51e7956d082656d52fbb in JSON format example:
+> GET JSON from http://api-sandbox.pillpack.com/medications and 
+http://api-sandbox.pillpack.com/prescriptions
+> For every brand medication find matching generic medication by 
+RxNorm Concept Unique Identifier (rxcui)
+> Output new prescriptions with prescriptions_id and 
+generic medication_id as per https://gist.github.com/mpokress/51e7956d082656d52fbb 
+in JSON format example:
 
 {
   "prescription_updates":
