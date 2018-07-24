@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/lavebug/Homework-pp#readme",
   "dependencies": {
-    "http": "0.0.0"
+    "axios": "^0.18.0"
   }
 }
