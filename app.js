@@ -23,24 +23,25 @@ axios.all([getPrescriptions(), getMedications()])
     medications = meds.data;
     medications.forEach(medication => {medicationMap[medication.id] = medication;});
 
+    
     // for loop of prescriptions retrieving medication from dictionary -> n+1
     // total time complexity (wort case) = O(n+n+1)
     //                                   = O(2n+1)
     //                                   = O(n)
     let updatedPrescriptions = [];
-    for(let x = 0; x < prescriptions.length; x++) {
-      let medicationObj = medicationMap[prescriptionMap[prescriptions[x].id].medication_id];
+    for(let i = 0; i < prescriptions.length; i++) {
+      let medicationObj = medicationMap[prescriptionMap[prescriptions[i].id].medication_id];
       let arrayMedicationResult = [];
       let j = 0;
-      for (let i = 0; i < medications.length; i++){
-        if (medicationObj.rxcui == medications[i].rxcui){
-          arrayMedicationResult[j] = medications[i];
+      for (let o = 0; o < medications.length; o++){
+        if (medicationObj.rxcui == medications[o].rxcui){
+          arrayMedicationResult[j] = medications[o];
           j++;
         }
       };
-      for (let i = 0; i < arrayMedicationResult.length ; i++){
-        if(arrayMedicationResult[i].generic === true) {
-          updatedPrescriptions.push({"prescription_id": prescriptionMap[prescriptions[x].id].id, "medication_id": arrayMedicationResult[i].id});
+      for (let u = 0; u < arrayMedicationResult.length ; u++){
+        if(arrayMedicationResult[u].generic === true) {
+          updatedPrescriptions.push({"prescription_id": prescriptionMap[prescriptions[u].id].id, "medication_id": arrayMedicationResult[u].id});
         }
       };
     }
